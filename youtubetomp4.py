@@ -5,11 +5,11 @@ def download_video(url, output_path):
     video = yt.streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc().first()
     if video:
         video.download(output_path)
-        print("Téléchargement terminé.")
+        print("Download Completed")
     else:
-        print("Aucune vidéo disponible avec une qualité MP4.")
+        print("Video not found")
 
 if __name__ == "__main__":
-    video_url = input("Entrez l'URL de la vidéo YouTube : ")
-    output_directory = input("Entrez le chemin de sortie pour le téléchargement : ")
+    video_url = input("Enter the YouTube URL :")
+    output_directory = input("Enter the the desired file location :")
     download_video(video_url, output_directory)
